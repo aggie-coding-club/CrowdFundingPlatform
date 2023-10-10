@@ -1,6 +1,5 @@
-import React from "react";
 
-export default Paragraph(){
+export default function Contact(){
     return(
         <p>Hello, World!</p>
     )
