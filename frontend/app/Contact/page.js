@@ -1,6 +1,5 @@
-import React from "react";
 
-export default function Paragraph(){
+export default Paragraph(){
     return(
         <div>
             <img src="/ReveilleX.jpg" alt="Reveille in a field of flowers" />
