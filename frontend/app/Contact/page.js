@@ -1,5 +1,6 @@
+import Image from "next/image"
 
-export default Paragraph(){
+export default function Contact(){
     return(
         <div>
             <img src="/ReveilleX.jpg" alt="Reveille in a field of flowers" />
