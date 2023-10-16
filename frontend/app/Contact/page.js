@@ -1,8 +1,10 @@
 
 export default function Contact(){
     return(
-        <div className="bg-gray-100 font-serif">
-            <img src="/ReveilleX.jpg" width={500} height={500} alt="Reveille in a field of flowers" />
+        <div className="bg-gray-100 font-serif ">
+            <div className="flex justify-center">
+                <img src="/ReveilleX.jpg" className="w-[100%] h-[40%] mt-10" alt="Reveille in a field of flowers" />
+            </div>
             <div className="flex flex-wrap justify-center bg-red-800 h-28 mb-14">
                     <hr className="basis-full items-start border-1"/>
                     <p className="text-center font-bold text-4xl items-center justify-center basis-full">Contact Us</p>
@@ -24,7 +26,7 @@ export default function Contact(){
                         <input type="text" placeholder="Name" className="rounded-sm basis-full h-14 my-5 text-gray-700 placeholder-gray-700 bg-white"/>
                         <input type="text" placeholder="Email" className="rounded-sm basis-full h-14 mb-5 text-gray-700 placeholder-gray-700 bg-white"/>
                         <textarea placeholder="Feedback" className="basis-full h-56 mb-5 rounded-sm bg-white text-gray-700 placeholder-gray-700"></textarea>
-                        <button type="Submit" className="bg-white text-black mb-4 w-[10%] h-[7%]">Submit</button>
+                        <button type="Submit" className="bg-white text-black mb-4 px-5 h-[7%]">Submit</button>
                     </form>
                 </div>
             </div>
