@@ -1,0 +1,4 @@
+/backend/.my_pgpass
+/backend/.pg_service.conf
+/venv
+/backend/.env
