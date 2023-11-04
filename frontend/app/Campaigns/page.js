@@ -10,7 +10,7 @@ export default function Campaigns() {
     return (
         <main data-theme="light" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-40 pl-20">
             {campaigns.map((campaign, index) => (
-                <div key={index} className="card w-96 bg-base-100 shadow-xl">
+                <div key={index} className="card w-96 bg-base-100 shadow-xl mb-10">
                     <figure><img src={campaign.image} alt={campaign.title} /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{campaign.title}</h2>
