@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-f39(s$*a2ds$rsa8*^tte#5txgtvv3gngqz)!o$9i#boq_6v34
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'payments',
+    'campaigns',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Example: Your Next.js frontend
+    "https://yourproductiondomain.com",
 ]
 
 ROOT_URLCONF = 'backend.urls'

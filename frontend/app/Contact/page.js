@@ -5,12 +5,12 @@ export default function Contact(){
             <div className="flex justify-center">
                 <img src="/ReveilleX.jpg" className="w-[100%] h-[40%] mt-10" alt="Reveille in a field of flowers" />
             </div>
-            <div className="flex flex-wrap justify-center bg-red-800 h-28 mb-14">
+            <div className="flex flex-wrap justify-center h-28 mb-14">
                     <hr className="basis-full items-start border-1"/>
                     <p className="text-center font-bold text-4xl items-center justify-center basis-full">Contact Us</p>
                     <hr className="items-stretch border-2 w-52 -mt-4"/>
             </div>
-            <div className="flex justify-center items-center bg-red-800 h-56 mb-14">
+            <div className="flex justify-center items-center bg-red-800 h-56 mb-14 lg:w-[50%]">
                 <div className="text-xl font-medium flex-wrap grid-rows-3 w-[97%] h-[87%] border-4 border-white flex items-center">
                     <p className="basis-full ml-3">Email:</p>
                     <p className="font-light -mt-4 basis-full ml-3">example@gmail.com</p>
@@ -20,7 +20,7 @@ export default function Contact(){
                     <p className="font-light -mt-4 basis-full ml-3">1600 Pennsylvania Avenue NW, Washington, DC 20500</p>
                 </div>
             </div>
-            <div className="flex justify-center items-center bg-red-800">
+            <div className="flex justify-center items-center bg-red-800 lg:w-[50%]">
                 <div className="flex justify-center items-center w-[97%] h-[87%] my-4 border-4 border-white flex">
                     <form action="/url"method="GET" className="w-[87%] text-xl flex-wrap grid-rows-3 flex justify-center">
                         <input type="text" placeholder="Name" className="rounded-sm basis-full h-14 my-5 text-gray-700 placeholder-gray-700 bg-white"/>
