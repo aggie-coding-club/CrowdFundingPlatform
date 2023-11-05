@@ -5,6 +5,8 @@ from decimal import Decimal
 from datetime import date
 import datetime
 
+# Implement error handling, parameter default values, etc. (very basic right now)
+
 # Create your views here.
 def say_hello(request):
     return HttpResponse('Hello World')
@@ -21,11 +23,11 @@ def get_campaigns(request):
 
 
 def create_campaign(request):
-
-    # Add rest of parameters
+    # Only insert if all fields, otherwise throw error
+    # Handle duplicate campaigns- force delete one before adding another
     name = request.GET.get('name', None)
     summary = request.GET.get('summary', None)
-    # Check for invalid parameters
+    # Change to today
     date_launch = request.GET.get('date_launch', None)
     authors = request.GET.get('authors', None)
     target = request.GET.get('target', None)
@@ -46,11 +48,9 @@ def create_campaign(request):
     return HttpResponse("Successfully inserted!")
     
 
-
 def find_campaign(request):
-
-    # Add rest of parameters
     name = request.GET.get('name', None)
+    # Check for invalid parameters
     authors = request.GET.get('authors', None)
 
     row = Campaigns.objects.filter(name=name, authors=authors).first()
@@ -63,17 +63,61 @@ def find_campaign(request):
 
 
 def delete_campaign(request):
-    pass 
+    name = request.GET.get('name', None)
+    # Check for invalid parameters
+    authors = request.GET.get('authors', None)
+    rows = Campaigns.objects.filter(name=name, authors=authors)
+    rows.delete()
+
+    return HttpResponse("Successfully deleted!")
+
 
 def find_all_user_campaigns(request):
-    
-    pass 
+    authors = request.GET.get('authors', None)
+
+    rows = Campaigns.objects.filter(authors=authors)
+
+    # Convert the data to a format suitable for JSON response
+    data = [{'id': row.id, 'name': row.name, 'summary': row.summary, 'date_launch': row.date_launch, 
+             'authors': row.authors, 'target': row.target, 'raised': row.raised, 'content': row.content} for row in rows]
+
+    # Return the data as JSON response
+    return JsonResponse(data, safe=False)
+
 
 def update_campaign_details(request):
-    pass 
+    name = request.GET.get('name', None)
+    # Check for invalid parameters
+    # Fix so that old values are default, instead of none
+    authors = request.GET.get('authors', None)
+    new_content = request.GET.get('content', None)
+    new_summary = request.GET.get('summary', None)
+    new_target = request.GET.get('target', None)
+
+    row = Campaigns.objects.filter(name=name, authors=authors).first()
+    row.summary = new_summary
+    row.content = new_content
+    row.target = new_target
+
+    row.save()
+
+    return HttpResponse("Successfully updated!")
+
+
 
 def add_funds(request):
-    pass
+    name = request.GET.get('name', None)
+    # Check for invalid parameters
+    # Fix so that old values are default, instead of none
+    authors = request.GET.get('authors', None)
+    added = request.GET.get('added', 0)
+    row = Campaigns.objects.filter(name=name, authors=authors).first()
+    row.raised = row.raised + Decimal(added)
+    
+    row.save()
+
+    return HttpResponse("Successfully updated!")
+
 
 def insert_test_data(request):
     campaign1 = Campaigns(

@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import Image from 'next/image';
 
 class MyForm extends React.Component {
     constructor(props) {
@@ -25,6 +26,14 @@ class MyForm extends React.Component {
     render() {
         return (
             <main data-theme="light">
+                <div className="relative w-full h-[400px]">
+                    <Image
+                        src="/ReveilleX.jpg"
+                        alt="Reveille in a field of flowers"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>                
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="py-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Contact Us</h2>
                 </div>
@@ -44,7 +53,6 @@ class MyForm extends React.Component {
                                 </label>
                                 <input type="email" name="Email" placeholder="Type here" className="input input-bordered w-full max-w-xl" required/>
                             </div>
-
                             <div className="form-control w-full max-w-xl">
                                 <label className="label">
                                     <span className="label-text">Feedback</span>
