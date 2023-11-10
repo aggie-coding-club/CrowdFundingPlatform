@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function Campaigns() {
     // set true to use database values instead of placeholder values
-    var using_database = false;
+    var using_database = true;
 
     var campaigns = [
         { image: 'https://placehold.co/600x400', title: 'Campaign 1', summary: 'short description of campaign 1...' , raised: '0', date: '2023-11-07', authors: 'None', id:1},
