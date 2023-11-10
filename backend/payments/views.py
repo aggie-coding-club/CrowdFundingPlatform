@@ -1,45 +1,47 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Campaigns
+from django.http import HttpResponse, JsonResponse
 from decimal import Decimal
 from datetime import date
+import stripe
 
 # Create your views here.
 
 def say_hello(request):
     return HttpResponse('Hello World')
 
-def database_test(request):
-    all_rows = Campaigns.objects.all()
-    for row in all_rows:
-        print(row)
-    #return all_rows
-    return HttpResponse('Hello')
 
-def database_insert(request):
-    campaign1 = Campaigns(
-        name="Campaign 1",
-        summary="This is the summary for Campaign 3.",
-        date_launch=date(2023, 1, 1),
-        authors="Author 1",
-        target=Decimal("1000.00"),
-        raised=Decimal("500.00"),
-        content="Content for Campaign 1.",
+def payment_intent(request):
+
+    stripe.api_key = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+    #stripe.Account.create(type="standard")
+
+    #stripe.AccountLink.create(
+    #    account='{{22222}}',
+    #    refresh_url="https://example.com/reauth",
+    #    return_url="https://example.com/return",
+    #    type="account_onboarding",
+    #)
+    
+    intent = stripe.PaymentIntent.create(
+        amount=1099,
+        currency="usd",
+        automatic_payment_methods={"enabled": True},
+    #    stripe_account='{{CONNECTED_ACCOUNT_ID}}',
     )
-    campaign1.save()
-
-    campaign2 = Campaigns(
-        name="Campaign 2",
-        summary="This is the summary for Campaign 4.",
-        date_launch=date(2023, 2, 15),
-        authors="Author 2",
-        target=Decimal("2000.00"),
-        raised=Decimal("1000.00"),
-        content="Content for Campaign 2.",
-    )
-    campaign2.save()
-    return HttpResponse("blah")
+    
+    print(intent.client_secret)
+    return JsonResponse({'client_secret': intent.client_secret})
 
 
-def credit_card_transaction():
+def credit_card_transaction(request):
+    # Add Error handling
+    campaign = request.GET.get('campaign_name', None)
+    recipient = request.GET.get('recipient', None)
+    donor = request.GET.get('donor', None)
+
+
+    return HttpResponse('Successfully transferred funds!')
+
+
+def debit_card_transaction(request):
     pass
