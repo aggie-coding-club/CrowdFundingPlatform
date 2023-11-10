@@ -2,7 +2,7 @@ import axios from "axios";
 
 // If you use the AxiosTest route, you can test out the backend 
 async function fetchData(props){
-    var data = await axios.get("http://127.0.0.1:8000/campaigns/add_funds/", {
+    var data = await axios.get("http://127.0.0.1:8000/campaigns/insert_test_data/", {
         params: {
             name: "Campaign 3",
             authors: "Allen",

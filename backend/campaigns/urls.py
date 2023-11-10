@@ -10,5 +10,6 @@ urlpatterns = [
     path('find_all_user_campaigns/', views.find_all_user_campaigns),
     path('update_campaign_details/', views.update_campaign_details),
     path('add_funds/', views.add_funds),
-    path('insert_test_data', views.insert_test_data)
+    path('insert_test_data/', views.insert_test_data),
+    path('get_recent_campaigns/', views.get_recent_campaigns),
 ]
