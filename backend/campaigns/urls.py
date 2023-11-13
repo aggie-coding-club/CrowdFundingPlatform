@@ -12,4 +12,5 @@ urlpatterns = [
     path('add_funds/', views.add_funds),
     path('insert_test_data/', views.insert_test_data),
     path('get_recent_campaigns/', views.get_recent_campaigns),
+    path('get_campaign_by_id/', views.get_campaign_by_id),
 ]

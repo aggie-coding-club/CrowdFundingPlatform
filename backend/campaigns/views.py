@@ -124,6 +124,17 @@ def update_campaign_details(request):
 
     return HttpResponse("Successfully updated!")
 
+def get_campaign_by_id(request):
+    id = request.GET.get('id', None)
+
+    row = Campaigns.objects.filter(id=id).first()
+
+    data = {'id': row.id, 'name': row.name, 'summary': row.summary, 'date_launch': row.date_launch, 
+             'authors': row.authors, 'target': row.target, 'raised': row.raised, 'content': row.content, 
+             'recipient': row.recipient_name, 'recipient_account': row.recipient_account}
+    
+    # Returns single campaign, not array
+    return JsonResponse(data, safe=False)
 
 
 def add_funds(request):

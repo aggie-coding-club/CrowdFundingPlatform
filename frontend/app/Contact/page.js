@@ -33,7 +33,7 @@ class MyForm extends React.Component {
                         layout="fill"
                         objectFit="cover"
                     />
-                </div>                
+                </div>
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="py-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Contact Us</h2>
                 </div>
@@ -44,14 +44,14 @@ class MyForm extends React.Component {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name="Name" placeholder="Type here" className="input input-bordered w-full max-w-xl" required/>
+                                <input type="text" name="Name" placeholder="Type here" className="input input-bordered w-full max-w-xl" required />
                             </div>
 
                             <div className="form-control w-full max-w-xl">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="Email" placeholder="Type here" className="input input-bordered w-full max-w-xl" required/>
+                                <input type="email" name="Email" placeholder="Type here" className="input input-bordered w-full max-w-xl" required />
                             </div>
                             <div className="form-control w-full max-w-xl">
                                 <label className="label">

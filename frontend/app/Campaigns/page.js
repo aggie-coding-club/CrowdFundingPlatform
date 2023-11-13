@@ -35,26 +35,37 @@ export default async function Campaigns() {
     }
 
     return (
-        <main data-theme="light" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-40 pl-20">
-            {campaigns.map((campaign, index) => (
-                <div key={index} className="card w-96 bg-base-100 shadow-xl mb-10">
-                    <Link key={index} href={`/Campaigns/${campaign.id}`}>
-                    <figure className="rounded-t-xl">
-                        <img src={campaign.image} alt={campaign.title} />
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">{campaign.title}</h2>
-                        <p>{campaign.summary}</p>
-                        <p>Creators: {campaign.authors}</p>
-                        <p>Date Created: {campaign.date}</p>
-                        <div className="card-actions justify-end">
-                            <kbd className="kbd">Raised: ${campaign.raised}</kbd>
-                        </div>
-                    </div>
+        <div className="bg-white pt-24">
+            <main data-theme="light" className="">
+                <div className="text-right mx-24">
+                    <Link href={"/CreateCampaign"}>
+                        <button className="bg-red-950 text-white text-lg px-4 py-2 rounded-md mb-24">
+                            + Create New Campaign
+                        </button>
                     </Link>
                 </div>
-            ))}
-        </main>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pl-20">
+                    {campaigns.map((campaign, index) => (
+                        <div key={index} className="card w-96 bg-base-100 shadow-xl mb-10">
+                            <Link key={index} href={`/Campaigns/${campaign.id}`}>
+                            <figure className="rounded-t-xl">
+                                <img src={campaign.image} alt={campaign.title} />
+                            </figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{campaign.title}</h2>
+                                <p>{campaign.summary}</p>
+                                <p>Creators: {campaign.authors}</p>
+                                <p>Date Created: {campaign.date}</p>
+                                <div className="card-actions justify-end">
+                                    <kbd className="kbd">Raised: ${campaign.raised}</kbd>
+                                </div>
+                            </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            </main>
+        </div>
     );
 }
 
