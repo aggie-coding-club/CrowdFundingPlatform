@@ -85,8 +85,16 @@ export default async function IndividualCampaign(props) {
                         </button>
 
                         <div className="flex py-1">
-                            <p className="w-1/3 text-lg">Raised: </p>
-                            <p className="w-1/2 text-lg">Goal: </p>
+                            {
+                                useDatabase
+                                    ? <p className="w-1/3 text-lg">Raised: ${data.raised}</p>
+                                    : <p className="w-1/3 text-lg">Raised: $XXX</p>
+                            }
+                            {
+                                useDatabase
+                                    ?  <p className="w-1/2 text-lg">Goal: ${data.target}</p>
+                                    :  <p className="w-1/2 text-lg">Goal: $XXX</p>
+                            }
                         </div>
                         <div className="bg-white rounded-full border-black border-2 w-3/4 h-7"></div>
 
@@ -122,26 +130,26 @@ export default async function IndividualCampaign(props) {
 
             <div className="bg-white text-black mb-24 flex flex-row justify-between font-serif">
 
-            <div className="mt-24 mx-24">
-                <div className="flex flex-col mb-2">
-                    <p className="text-center mb-2">Comments</p>
-                    <hr className="self-center border-[#901010] border-1 w-1/6" />
+                <div className="mt-24 mx-24">
+                    <div className="flex flex-col mb-2">
+                        <p className="text-center mb-2">Comments</p>
+                        <hr className="self-center border-[#901010] border-1 w-1/6" />
+                    </div>
+                    <div className="flex mb-2">
+                        <img
+                            src="\ReveilleX.jpg"
+                            className="object-cover object-[70%] rounded-full h-16 w-16"
+                        />
+                        <p className="ml-5 self-center">Username</p>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                        eget odio facilisis, iaculis nibh eget, eleifend ex. Sed id sapien
+                        in mi mollis finibus. Maecenas quam neque, tincidunt id lorem a,
+                        vestibulum porttitor massa. Nam leo tortor, pharetra vitae
+                        efficitur a, euismod id ligula.
+                    </p>
                 </div>
-                <div className="flex mb-2">
-                    <img
-                        src="\ReveilleX.jpg"
-                        className="object-cover object-[70%] rounded-full h-16 w-16"
-                    />
-                    <p className="ml-5 self-center">Username</p>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                    eget odio facilisis, iaculis nibh eget, eleifend ex. Sed id sapien
-                    in mi mollis finibus. Maecenas quam neque, tincidunt id lorem a,
-                    vestibulum porttitor massa. Nam leo tortor, pharetra vitae
-                    efficitur a, euismod id ligula.
-                </p>
-            </div>
             </div>
 
         </div>
