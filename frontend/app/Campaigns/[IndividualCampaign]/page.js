@@ -54,8 +54,29 @@ export default async function IndividualCampaign(props) {
                 </div>
             </div>
 
-            <div className="flex flex-col w-[40%] mr-[5%]">
-                <div className="w-[100%]">
+            <div className="w-[70%] mt-3">
+            <div className="flex flex-col mb-2">
+              <p className="text-center mb-2">Comments</p>
+              <hr className="self-center border-[#901010] border-1 w-1/6" />
+            </div>
+            <div className="flex mb-2">
+              <img
+                src="\ReveilleX.jpg"
+                className="object-cover object-[70%] rounded-full h-16 w-16"
+              />
+              <p className="ml-5 self-center">Username</p>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+              eget odio facilisis, iaculis nibh eget, eleifend ex. Sed id sapien
+              in mi mollis finibus. Maecenas quam neque, tincidunt id lorem a,
+              vestibulum porttitor massa. Nam leo tortor, pharetra vitae
+              efficitur a, euismod id ligula.
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-center w-[40%]">
+            <div className="w-[100%] ml-[6%]">
                     {
                         useDatabase
                             ? <p className="text-6xl font-bold pt-16 my-2">{data.name}</p>
@@ -80,12 +101,19 @@ export default async function IndividualCampaign(props) {
                     <button className="mb-6 rounded-md text-white bg-[#901010] w-3/4 h-16">
                         Donate
                     </button>
-                    <div className="bg-white rounded-full border-black border-2 w-3/4 h-7"></div>
-                    <div className="w-[70%] mt-16">
-                        <div className="flex flex-col mb-5">
-                            <p className="text-center mb-2">Organizer Message/Comments</p>
-                            <hr className="self-center border-[#901010] border-1 w-1/6" />
-                        </div>
+
+                    <div className="flex py-1">
+            <p className="w-1/3 text-lg">Raised: </p>
+            <p className="w-1/2 text-lg">Goal: </p>
+          </div>
+          <div className="bg-white rounded-full border-black border-2 w-3/4 h-7"></div>
+
+
+          <div className="w-[70%] mt-10">
+          <div className="flex flex-col mb-2">
+              <p className="text-center mb-2">Organizer Messages</p>
+              <hr className="self-center border-[#901010] border-1 w-1/6" />
+            </div>
                         <div className="flex mb-2">
                             <img
                                 src="\ReveilleX.jpg"
@@ -108,5 +136,6 @@ export default async function IndividualCampaign(props) {
                 </div>
             </div>
         </div>
-    );
+
+  );
 }
