@@ -4,6 +4,9 @@ from .models import Campaigns
 from decimal import Decimal
 from datetime import date
 import datetime
+from django.middleware.csrf import get_token
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 # Implement error handling, parameter default values, etc. (very basic right now)
 
@@ -22,6 +25,42 @@ def get_campaigns(request):
 
     # Return the data as JSON response
     return JsonResponse(data, safe=False)
+
+def csrf_token(request):
+    csrf_token = get_token(request)
+    return JsonResponse({'csrfToken': csrf_token})
+
+@csrf_exempt
+def create_campaign_form(request):
+    # Only insert if all fields, otherwise throw error
+    # Handle duplicate campaigns- force delete one before adding another
+    body_data = json.loads(request.body.decode('utf-8'))
+    
+    name = body_data.get('name', None)
+    summary = body_data.get('summary', None)
+    # Change to today
+    date_launch = body_data.get('date_launch', None)
+    authors = body_data.get('authors', None)
+    target = body_data.get('target', None)
+    raised = body_data.get('raised', None)
+    content = body_data.get('content', None)
+    recipient_name = body_data.get('recipient_name', None)
+    recipient_account = body_data.get('recipient_account', None)
+
+    new_campaign = Campaigns(
+        name=name,
+        summary=summary,
+        date_launch=date_launch,
+        authors=authors,
+        target=target,
+        raised=raised,
+        content=content,
+        recipient_name=recipient_name,
+        recipient_account=recipient_account,
+    )
+    new_campaign.save()
+
+    return HttpResponse("Successfully inserted!")
 
 
 def create_campaign(request):

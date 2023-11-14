@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { ReactQueryProvider } from './ReactQueryProvider'
 
 export const metadata = {
 	title: 'Create Next App',
@@ -9,6 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
+		<ReactQueryProvider>
 		<html lang="en" className="bg-white">
 			<body>
 				<Navbar />
@@ -16,5 +18,6 @@ export default function RootLayout({ children }) {
 				<Footer />
 			</body>
 		</html>
+		</ReactQueryProvider>
 	)
 }
