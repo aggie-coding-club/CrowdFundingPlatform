@@ -27,20 +27,21 @@ export default function CheckoutForm(props) {
     }
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
+        switch (paymentIntent.status) {
+          case "succeeded":
+            setMessage("Payment succeeded!");
+            break;
+          case "processing":
+            setMessage("Your payment is processing.");
+            break;
+          case "requires_payment_method":
+            setMessage("Payment method required.");
+            break;
+          default:
+            setMessage("Something went wrong.");
+            break;
       }
+      
     });
   }, [stripe]);
 

@@ -99,7 +99,7 @@ export default function CreateCampaign() {
 								</div>
 
 								{
-									success ? <p> Successfully Submitted! </p> :
+									success ? <p className='text-lg'> Successfully Submitted! </p> :
 										<div className="lg:col-span-2">
 											<div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
 												<div className="md:col-span-5">
