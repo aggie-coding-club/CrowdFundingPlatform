@@ -2,11 +2,12 @@ export default function About() {
   return (
     <div className="flex flex-col h-[100%] bg-white font-serif">
       <div className="flex flex-col items-center w-full my-20 text-[#500000]">
+        <h1 className="text-4xl text-center text-black mb-12">About Us</h1>
         <p className="text-5xl text-center italic w-[60%] my-5">
           " A&M encourages volunteerism, encourages being one of a thousand
           points of light, helping others...and it comes naturally to Aggies. "
         </p>
-        <p className="text-3xl italic font-medium">
+        <p className="mt-4 text-3xl italic font-medium mx-6 lg:mx-0">
           - Former US President, George Bush
         </p>
       </div>
@@ -27,7 +28,7 @@ export default function About() {
             difference one project at a time.
           </p>
         </div>
-        <div className="flex flex-col items-center w-full pt-2 bg-[#330b0b]">
+        <div className="text-white flex flex-col items-center w-full pt-2 bg-[#330b0b]">
           <p className="text-5xl text-center italic my-24">
             " Through unity, strength "
           </p>
