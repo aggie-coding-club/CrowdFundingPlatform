@@ -5,6 +5,7 @@ urlpatterns = [
     path('hello/', views.say_hello),
     path('get_campaigns/', views.get_campaigns),
     path('create_campaign/', views.create_campaign),
+    path('create_campaign_form/', views.create_campaign_form),
     path('find_campaign/', views.find_campaign),
     path('delete_campaign/', views.delete_campaign),
     path('find_all_user_campaigns/', views.find_all_user_campaigns),
@@ -12,4 +13,6 @@ urlpatterns = [
     path('add_funds/', views.add_funds),
     path('insert_test_data/', views.insert_test_data),
     path('get_recent_campaigns/', views.get_recent_campaigns),
+    path('get_campaign_by_id/', views.get_campaign_by_id),
+    path('csrf-token/', views.csrf_token),
 ]

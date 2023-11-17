@@ -1,5 +1,5 @@
-export default function SignUp(){
-    return(
+export default function SignUp() {
+    return (
         <main data-theme="light" className="pb-24">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="py-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign Up</h2>
@@ -13,7 +13,7 @@ export default function SignUp(){
                                     <label className="label">
                                         <span className="label-text">First Name</span>
                                     </label>
-                                    <input type="text" name="" placeholder="Type here" className="input input-bordered w-full max-w-xs" required/>
+                                    <input type="text" name="" placeholder="Type here" className="input input-bordered w-full max-w-xs" required />
                                 </div>
                             </div>
 
@@ -31,14 +31,14 @@ export default function SignUp(){
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="" placeholder="Type here" className="input input-bordered w-full max-w-xl" required/>
+                            <input type="email" name="" placeholder="Type here" className="input input-bordered w-full max-w-xl" required />
                         </div>
 
                         <div className="form-control w-full max-w-xl">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="" placeholder="Type here" className="input input-bordered w-full max-w-xl" required/>
+                            <input type="password" name="" placeholder="Type here" className="input input-bordered w-full max-w-xl" required />
                         </div>
 
                         <button type="submit" className="mt-6 btn btn-block">Sign Up</button>

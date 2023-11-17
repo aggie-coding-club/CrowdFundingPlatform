@@ -11,7 +11,6 @@ const navigation = [
     { name: 'About', href: '/About' },
     { name: 'Campaigns', href: '/Campaigns' },
     { name: 'Contact', href: '/Contact' },
-    { name: 'Login', href: '/Login' },
 ]
 
 export default function Navbar(){
@@ -34,7 +33,13 @@ export default function Navbar(){
                             ))}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Logo</a>
+                    <a className="btn btn-ghost normal-case text-xl">
+                        <Image src={"/Logo.png"} 
+                            alt="AggieFunds logo"
+                            width={200}
+                            height={100}
+                        />
+                    </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
