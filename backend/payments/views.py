@@ -13,10 +13,9 @@ def say_hello(request):
 def payment_intent(request):
 
     stripe.api_key = "sk_test_51O90DOFfT6IQyyJPX2GRBIuSY60BOAS5PCKflhvjyTE9xufUx7jLgxOvuKWTm3nM2iYkLiUemlTZGVzbe6O4r0iS00VjaU9XXo"
-    #stripe.Account.create(type="standard")
 
     #stripe.AccountLink.create(
-    #    account='{{22222}}',
+    #    account='acct_1ODUBXCIkwtUaNx1',
     #    refresh_url="https://example.com/reauth",
     #    return_url="https://example.com/return",
     #    type="account_onboarding",
@@ -27,7 +26,7 @@ def payment_intent(request):
         currency="usd",
         automatic_payment_methods={"enabled": True},
         #application_fee_amount=123,
-        #stripe_account='{{CONNECTED_ACCOUNT_ID}}',
+        #stripe_account='acct_1ODUBXCIkwtUaNx1',
     )
     
     print(intent.client_secret)
