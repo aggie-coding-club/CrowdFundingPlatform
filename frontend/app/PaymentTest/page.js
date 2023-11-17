@@ -9,7 +9,8 @@ export default async function PaymentTest(){
     //console.log(data.data.client_secret);
 
     return (
-        <div className="py-24">
+        <div className="py-24 bg-white px-6">
+            <h1 className='text-center text-4xl'>Payment Test</h1>
             <ClientSide clientSecret={clientSecret}/>
         </div>
     );

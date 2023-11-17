@@ -12,7 +12,7 @@ def say_hello(request):
 
 def payment_intent(request):
 
-    stripe.api_key = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+    stripe.api_key = "sk_test_51O90DOFfT6IQyyJPX2GRBIuSY60BOAS5PCKflhvjyTE9xufUx7jLgxOvuKWTm3nM2iYkLiUemlTZGVzbe6O4r0iS00VjaU9XXo"
     #stripe.Account.create(type="standard")
 
     #stripe.AccountLink.create(
@@ -26,7 +26,8 @@ def payment_intent(request):
         amount=1099,
         currency="usd",
         automatic_payment_methods={"enabled": True},
-    #    stripe_account='{{CONNECTED_ACCOUNT_ID}}',
+        #application_fee_amount=123,
+        #stripe_account='{{CONNECTED_ACCOUNT_ID}}',
     )
     
     print(intent.client_secret)

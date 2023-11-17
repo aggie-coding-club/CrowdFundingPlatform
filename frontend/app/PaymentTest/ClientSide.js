@@ -4,9 +4,11 @@ import CheckoutForm from './CheckoutForm';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
-const stripePromise = loadStripe('sk_test_51O90DOFfT6IQyyJPX2GRBIuSY60BOAS5PCKflhvjyTE9xufUx7jLgxOvuKWTm3nM2iYkLiUemlTZGVzbe6O4r0iS00VjaU9XXo');
+const stripePromise = loadStripe('pk_test_51O90DOFfT6IQyyJPSMZU4AwYqKddMGsIQhatfF389SNAvsc7B77tmbkRNrtYOiZMylQTvj9N7yhXMHwEt1zKgo3100dEufhmwG');
 
 export default function ClientSide(props){
+
+    var clientSecret = props.clientSecret;
 
     const appearance = {
         theme: 'stripe',
@@ -16,13 +18,11 @@ export default function ClientSide(props){
         appearance,
     };
     
-    var clientSecret = props.clientSecret;
-
     return(
-        <div className="py-24">
+        <div className="py-24 lg:mx-[25%] text-center">
             {clientSecret && (
                 <Elements options={options} stripe={stripePromise}>
-                    <CheckoutForm />
+                    <CheckoutForm clientSecret={clientSecret}/>
                 </Elements>
             )}
         </div>
