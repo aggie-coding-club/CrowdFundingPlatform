@@ -55,8 +55,19 @@ export default function Campaigns() {
     );
 
     return (
-        <div>
-            <main data-theme="light" className="p-10 flex justify-center">
+        <div className='bg-white py-24'>
+
+            <h1 className='text-4xl text-center mb-2'>Campaigns</h1>
+            
+            <div className="text-right mx-24 bg-white mb-6">
+                <Link href={"/CreateCampaign"}>
+                    <button className="bg-red-950 text-white text-lg px-4 py-2 rounded-md">
+                        + Create New Campaign
+                    </button>
+                </Link>
+            </div>
+
+            <main data-theme="light" className="pb-10 flex justify-center">
             <form className="flex items-center" onSubmit={e => e.preventDefault()}>
                 <label htmlFor="simple-search" className="sr-only">Search</label>
                 <div className="relative w-100">
@@ -79,7 +90,7 @@ export default function Campaigns() {
             </form>
             </main>
 
-            <main data-theme="light" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-10 pl-20">
+            <main data-theme="light" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pl-20">
             {filteredCampaigns.length > 0 ? (
                 filteredCampaigns.map((campaign, index) => (
                 <div key={index} className="card w-96 bg-base-100 shadow-xl mb-10">
