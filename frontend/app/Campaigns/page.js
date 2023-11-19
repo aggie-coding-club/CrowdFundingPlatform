@@ -8,8 +8,12 @@ export default function Campaigns() {
     const [searchTerm, setSearchTerm] = useState('');
     const [campaigns, setCampaigns] = useState([]);
 
+    // set true to use database values instead of placeholder values
+    var using_database = false;
+
     useEffect(() => {
         const fetchData = async () => {
+
             var data = [
                 { image: 'https://placehold.co/600x400', title: 'Campaign 1', summary: 'short description of campaign 1...' , raised: '0', date: '2023-11-07', authors: 'None', id:1},
                 { image: 'https://placehold.co/600x400', title: 'Campaign 2', summary: 'short description of campaign 2...' , raised: '0', date: '2023-11-07', authors: 'None', id:2},
@@ -17,26 +21,28 @@ export default function Campaigns() {
                 { image: 'https://placehold.co/600x400', title: 'Campaign 4', summary: 'short description of campaign 4...' , raised: '0', date: '2023-11-07', authors: 'None', id:4},
                 { image: 'https://placehold.co/600x400', title: 'Campaign 5', summary: 'short description of campaign 5...' , raised: '0', date: '2023-11-07', authors: 'None', id:5},
             ];
+            
+            if(using_database){
+                const response = await axios.get("http://127.0.0.1:8000/campaigns/get_recent_campaigns/", {
+                    params: {
+                        rows: 6,
+                    }
+                });
 
-            /*
-            const response = await axios.get("http://127.0.0.1:8000/campaigns/get_recent_campaigns/", {
-                params: {
-                    rows: 6,
+                if(response != undefined){
+                    data = response.data.map(campaign => {
+                        return {
+                            id: campaign.id,
+                            title: campaign.name,
+                            authors: campaign.authors,
+                            summary: campaign.summary,
+                            raised: campaign.raised,
+                            date: campaign.date_launch,
+                            image: 'https://placehold.co/600x400',
+                        };
+                    });
                 }
-            });
-
-            data = response.data.map(campaign => {
-                return {
-                    id: campaign.id,
-                    title: campaign.name,
-                    authors: campaign.authors,
-                    summary: campaign.summary,
-                    raised: campaign.raised,
-                    date: campaign.date_launch,
-                    image: 'https://placehold.co/600x400',
-                };
-            });
-            */
+            }     
 
             setCampaigns(data);
         };
@@ -51,7 +57,7 @@ export default function Campaigns() {
     return (
         <div>
             <main data-theme="light" className="p-10 flex justify-center">
-            <form class="flex items-center" onSubmit={e => e.preventDefault()}>
+            <form className="flex items-center" onSubmit={e => e.preventDefault()}>
                 <label htmlFor="simple-search" className="sr-only">Search</label>
                 <div className="relative w-100">
                     <input
@@ -66,7 +72,7 @@ export default function Campaigns() {
                 </div>
                 <button type="submit" className="btn btn-square ml-3">
                     <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
                     <span className="sr-only">Search</span>
                 </button>
@@ -94,9 +100,11 @@ export default function Campaigns() {
                 </div>
                 ))
             ) : (
+                <div className='py-48'>
                 <div className="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="shrink-0 w-6 h-6" style={{ stroke: "rgb(69, 10, 10, 0.5)" }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span>There are currently no campaigns that match your search. Please try again with a different search term.</span>
+                </div>
                 </div>
             )}
             </main>
