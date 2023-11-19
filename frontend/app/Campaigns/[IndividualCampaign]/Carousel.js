@@ -32,7 +32,7 @@ export default function Carousel() {
 	}, []);
 
 	return (
-		<div className="self-center">
+		<div className="self-center font-sans">
 			<div className="carousel hidden pt-24">
 				<div className="absolute px-1 mt-2 ml-2 bg-white bg-opacity-70 rounded-md">
 					1 / 3

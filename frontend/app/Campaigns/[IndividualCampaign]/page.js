@@ -22,9 +22,9 @@ export default async function IndividualCampaign(props) {
 
 
     return (
-        <div>
-            <div className="bg-white text-black h-screen flex flex-row justify-between font-serif">
-                <div className="w-[45%] ml-[5%]">
+        <div className="bg-white font-serif text-black">
+            <div className="h-[100%] md:h-screen flex flex-col md:flex-row justify-between">
+                <div className="md:w-[45%] mx-[5%] -mt-6 md:-mt-0">
                     <div className="flex flex-col items-start">
                         <Carousel />
 
@@ -57,19 +57,19 @@ export default async function IndividualCampaign(props) {
 
 
 
-                <div className="flex flex-col justify-center w-[40%]">
-                    <div className="w-[100%] ml-[6%]">
+                <div className="order-first md:order-1 flex flex-col justify-center md:w-[40%] md:-mt-[10%]">
+                    <div className="flex flex-col md:ml-[6%]">
                         {
                             useDatabase
                                 ? <p className="text-6xl font-bold pt-16 my-2">{data.name}</p>
-                                : <p className="text-6xl font-bold pt-16 my-2">Help Reveille</p>
+                                : <p className="text-center md:text-left text-6xl font-bold pt-16 my-3">Help Reveille</p>
                         }
                         {
                             useDatabase
                                 ? <p className="mb-6 text-3xl">Fundraiser Type</p>
-                                : <p className="mb-6 text-3xl">Fundraiser Type</p>
+                                : <p className="text-center md:text-left mb-6 text-3xl">Fundraiser Type</p>
                         }
-                        <div className="flex flex-row mb-6">
+                        <div className="text-2xl self-center items-center md:self-start md:text-base flex flex-row mb-6">
                             <img
                                 src="\ReveilleX.jpg"
                                 className="object-cover object-[70%] rounded-full h-16 w-16"
@@ -80,27 +80,27 @@ export default async function IndividualCampaign(props) {
                                     : <div className="ml-5 self-center">Profile Name</div>
                             }
                         </div>
-                        <button className="mb-6 rounded-md text-white bg-[#901010] w-3/4 h-16">
+                        <button className="mb-6 rounded-md self-center md:self-start text-white bg-[#901010] w-5/6 md:w-3/4 h-16">
                             Donate
                         </button>
 
-                        <div className="flex py-1">
+                        <div className="flex w-[100%] md:w-3/4 self-center self-center py-1">
                             {
                                 useDatabase
                                     ? <p className="w-1/3 text-lg">Raised: ${data.raised}</p>
-                                    : <p className="w-1/3 text-lg">Raised: $XXX</p>
+                                    : <p className="w-1/2 text-center md:text-left text-lg">Raised: $XXX</p>
                             }
                             {
                                 useDatabase
                                     ?  <p className="w-1/2 text-lg">Goal: ${data.target}</p>
-                                    :  <p className="w-1/2 text-lg">Goal: $XXX</p>
+                                    :  <p className="w-1/2  text-center md:text-left text-lg">Goal: $XXX</p>
                             }
                         </div>
-                        <div className="bg-white rounded-full border-black border-2 w-3/4 h-7"></div>
+                        <div className="self-center md:self-start bg-white rounded-full border-black border-2 w-5/6 md:w-3/4 h-7"></div>
 
 
-                        <div className="w-[70%] mt-10">
-                            <div className="flex flex-col mb-2">
+                        <div className="flex flex-col self-center md:self-start w-[95%] md:w-[70%] mt-10">
+                            <div className="flex flex-col mb-7 md:mb-2">
                                 <p className="text-center mb-2">Organizer Messages</p>
                                 <hr className="self-center border-[#901010] border-1 w-1/6" />
                             </div>
@@ -115,7 +115,7 @@ export default async function IndividualCampaign(props) {
                                         : <p className="ml-5 self-center">Username</p>
                                 }
                             </div>
-                            <p>
+                            <p className="self-center">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                                 eget odio facilisis, iaculis nibh eget, eleifend ex. Sed id sapien
                                 in mi mollis finibus. Maecenas quam neque, tincidunt id lorem a,
@@ -128,10 +128,9 @@ export default async function IndividualCampaign(props) {
 
             </div>
 
-            <div className="bg-white text-black mb-24 flex flex-row justify-between font-serif">
-
-                <div className="mt-24 mx-24">
-                    <div className="flex flex-col mb-2">
+            <div className="flex flex-col mt-10 md:-mt-28">
+                <div className="w-[95%] self-center mb-16 md:mx-24">
+                    <div className="flex flex-col mb-7 md:mb-2">
                         <p className="text-center mb-2">Comments</p>
                         <hr className="self-center border-[#901010] border-1 w-1/6" />
                     </div>
