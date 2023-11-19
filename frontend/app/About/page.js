@@ -14,7 +14,7 @@ export default function About() {
 
       <div className="flex flex-col bg-[#330b0b] h-[70%]">
 
-        <div className="flex flex-col mt-14">
+        <div className="text-white flex flex-col mt-14">
           <p className="basis-full text-4xl text-center">Who are we</p>
           <hr className="my-3 w-[40%] self-center" />
           <p className="text-xl text-center basis-full self-center w-[75%]">
