@@ -21,10 +21,10 @@ export default function ClientSide(props){
     };
     
     return(
-        <div className="py-24 lg:mx-[25%] text-center">
+        <div className="pb-16 lg:mx-[25%] text-center">
             {clientSecret && (
                 <Elements options={options} stripe={stripePromise}>
-                    <CheckoutForm clientSecret={clientSecret}/>
+                    <CheckoutForm clientSecret={clientSecret} campaignID={props.id}/>
                 </Elements>
             )}
         </div>

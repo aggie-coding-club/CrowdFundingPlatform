@@ -45,6 +45,7 @@ def create_campaign_form(request):
     raised = body_data.get('raised', None)
     content = body_data.get('content', None)
     recipient_name = body_data.get('recipient_name', None)
+    # Verification
     recipient_account = body_data.get('recipient_account', None)
 
     new_campaign = Campaigns(

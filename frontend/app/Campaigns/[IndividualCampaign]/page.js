@@ -1,14 +1,15 @@
 import axios from 'axios';
 import Carousel from './Carousel';
+import Link from 'next/link';
 
 export default async function IndividualCampaign(props) {
     // Set this to true to use database, false to use default
     // If this is set to true, the using_database variable on Campaigns grid page should also be true
     var useDatabase = false;
+    const id = props.params.IndividualCampaign;
 
     var data;
     if (useDatabase) {
-        const id = props.params.IndividualCampaign;
         // get details based on id, and set data to it
         const info = await axios.get("http://127.0.0.1:8000/campaigns/get_campaign_by_id/", {
             params: {
@@ -80,9 +81,12 @@ export default async function IndividualCampaign(props) {
                                     : <div className="ml-5 self-center">Profile Name</div>
                             }
                         </div>
-                        <button className="mb-6 rounded-md self-center md:self-start text-white bg-[#901010] w-5/6 md:w-3/4 h-16">
-                            Donate
-                        </button>
+
+                        <Link href={"/Donate?id=" + id} >
+                            <button className="mb-6 rounded-md self-center md:self-start text-white bg-[#901010] w-5/6 md:w-3/4 h-16">
+                                Donate
+                            </button>
+                        </Link>
 
                         <div className="flex w-[100%] md:w-3/4 self-center self-center py-1">
                             {

@@ -11,13 +11,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<ReactQueryProvider>
-		<html lang="en" className="bg-white">
-			<body>
-				<Navbar />
-				{children}
-				<Footer />
-			</body>
-		</html>
+			<html lang="en" className="bg-white">
+				<body>
+					<Navbar />
+					{children}
+					<Footer />
+				</body>
+			</html>
 		</ReactQueryProvider>
 	)
 }

@@ -13,12 +13,11 @@ def say_hello(request):
 def payment_intent(request):
 
     stripe.api_key = "sk_test_51O90DOFfT6IQyyJPX2GRBIuSY60BOAS5PCKflhvjyTE9xufUx7jLgxOvuKWTm3nM2iYkLiUemlTZGVzbe6O4r0iS00VjaU9XXo"
-    
+
     intent = stripe.PaymentIntent.create(
-        amount=1099,
+        amount=100,
         currency="usd",
         automatic_payment_methods={"enabled": True},
-        #application_fee_amount=123,
         stripe_account='acct_1OE0gsC7ndhkZlfn',
     )
     
@@ -26,11 +25,26 @@ def payment_intent(request):
     return JsonResponse({'client_secret': intent.client_secret})
 
 
-def credit_card_transaction(request):
-    # Add Error handling
-    campaign = request.GET.get('campaign_name', None)
-    recipient = request.GET.get('recipient', None)
-    donor = request.GET.get('donor', None)
+def update_intent(request):
+    stripe.api_key = "sk_test_51O90DOFfT6IQyyJPX2GRBIuSY60BOAS5PCKflhvjyTE9xufUx7jLgxOvuKWTm3nM2iYkLiUemlTZGVzbe6O4r0iS00VjaU9XXo"
+    
+    new_amount = request.GET.get('donation', '100')
+    id = request.GET.get('id', '')
 
+    if new_amount == '':
+        new_amount = 100
+    else:
+        new_amount = int(float(new_amount) * 100)
 
-    return HttpResponse('Successfully transferred funds!')
+    #print(new_amount)
+    #print(client_secret)
+
+    stripe.PaymentIntent.modify(
+        id=id,
+        amount=new_amount,
+        stripe_account='acct_1OE0gsC7ndhkZlfn',
+    )
+
+    return JsonResponse({'message': 'Successfully Updated!'})
+
+    
