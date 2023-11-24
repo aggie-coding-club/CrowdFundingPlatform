@@ -215,7 +215,7 @@ export default function CreateCampaign() {
 												</div>
 
 												<div className="md:col-span-3">
-													<label>Stripe Account/Bank Account (Add Details later)</label>
+													<label>Stripe Connected Account ID</label>
 													<input
 														required
 														type="text"

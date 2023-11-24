@@ -51,7 +51,7 @@ export default function Carousel() {
 				<div className="absolute px-1 mt-2 ml-2 bg-white bg-opacity-70 rounded-md">
 					3 / 3
 				</div>
-				<img src="ColorfulRev.jpg" />
+				<img src="/ColorfulRev.jpg" />
 			</div>
 
 			<a className="prev" onClick={() => plusSlide(-1)}>

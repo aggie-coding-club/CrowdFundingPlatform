@@ -13,12 +13,13 @@ def say_hello(request):
 def payment_intent(request):
 
     stripe.api_key = "sk_test_51O90DOFfT6IQyyJPX2GRBIuSY60BOAS5PCKflhvjyTE9xufUx7jLgxOvuKWTm3nM2iYkLiUemlTZGVzbe6O4r0iS00VjaU9XXo"
+    account = request.GET.get('account', '')
 
     intent = stripe.PaymentIntent.create(
         amount=100,
         currency="usd",
         automatic_payment_methods={"enabled": True},
-        stripe_account='acct_1OE0gsC7ndhkZlfn',
+        stripe_account=account,
     )
     
     print(intent.client_secret)
@@ -30,6 +31,7 @@ def update_intent(request):
     
     new_amount = request.GET.get('donation', '100')
     id = request.GET.get('id', '')
+    account = request.GET.get('account', '')
 
     if new_amount == '':
         new_amount = 100
@@ -42,7 +44,7 @@ def update_intent(request):
     stripe.PaymentIntent.modify(
         id=id,
         amount=new_amount,
-        stripe_account='acct_1OE0gsC7ndhkZlfn',
+        stripe_account=account,
     )
 
     return JsonResponse({'message': 'Successfully Updated!'})

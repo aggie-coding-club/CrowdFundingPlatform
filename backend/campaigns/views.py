@@ -178,12 +178,9 @@ def get_campaign_by_id(request):
 
 
 def add_funds(request):
-    name = request.GET.get('name', None)
-    # Check for invalid parameters
-    # Fix so that old values are default, instead of none
-    authors = request.GET.get('authors', None)
+    id = request.GET.get('id', None)
     added = request.GET.get('added', 0)
-    row = Campaigns.objects.filter(name=name, authors=authors).first()
+    row = Campaigns.objects.filter(id=id).first()
     row.raised = row.raised + Decimal(added)
     
     row.save()

@@ -65,10 +65,19 @@ export default function CheckoutForm(props) {
 			id = paymentIntent.id;
 		})
 
-		const data = await axios.get("http://127.0.0.1:8000/payments/update_intent/", {
+		await axios.get("http://127.0.0.1:8000/payments/update_intent/", {
 			params: {
 				id: id,
 				donation: donation,
+				account: props.account,
+			}
+		});
+
+		// add funds to campaign database
+		await axios.get("http://127.0.0.1:8000/campaigns/add_funds/", {
+			params: {
+				id: campaignID,
+				added: donation,
 			}
 		});
 
@@ -85,6 +94,16 @@ export default function CheckoutForm(props) {
 		// your `return_url`. For some payment methods like iDEAL, your customer will
 		// be redirected to an intermediate site first to authorize the payment, then
 		// redirected to the `return_url`.
+
+		// Undo database funding addition since payment failed
+		const negativeFunds = donation * -1;
+		await axios.get("http://127.0.0.1:8000/campaigns/add_funds/", {
+			params: {
+				id: campaignID,
+				added: negativeFunds,
+			}
+		});
+
 		if (error.type === "card_error" || error.type === "validation_error") {
 			setMessage(error.message);
 		} else {
