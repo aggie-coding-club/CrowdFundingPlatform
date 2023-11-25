@@ -22,8 +22,11 @@ export default async function IndividualCampaign(props) {
     //console.log(data);
 
     // Calculate the proportion of raised to target
-    var progress = data.raised / data.target;
-    if(progress > 1){
+    var progress = 0.5;
+    if (useDatabase) {
+        var progress = data.raised / data.target;
+    }
+    if (progress > 1) {
         progress = 1;
     }
 
@@ -105,13 +108,33 @@ export default async function IndividualCampaign(props) {
                                     : <p className="w-1/2  text-center md:text-left text-lg">Goal: $XXX</p>
                             }
                         </div>
-                        <div className="self-center md:self-start bg-white rounded-full border-black border-2 w-5/6 md:w-3/4 h-7"></div>
 
                         <div className="self-center md:self-start w-5/6 md:w-3/4 h-7 bg-white rounded-full border-black border-2">
                             <div className="h-full rounded-full bg-[#500000]" style={{ width: `${progress * 100}%` }}></div>
                         </div>
 
                         <div className="flex flex-col self-center md:self-start w-[95%] md:w-[70%] mt-10">
+                            <div className="flex flex-col mb-7 md:mb-2">
+                                <p className="text-center mb-2">Donations History</p>
+                                <hr className="self-center border-[#901010] border-1 w-1/6" />
+                            </div>
+                            <div className='mb-2'>
+                                <p className="">
+                                    FirstName LastName
+                                </p>
+                                <p className="">
+                                    $10 &bull; 10 hrs
+                                </p>
+                            </div>
+                            <div className='mb-2'>
+                                <p className="">
+                                    FirstName LastName
+                                </p>
+                                <p className="">
+                                    $20 &bull; 1d
+                                </p>
+                            </div>
+
                             <div className="flex flex-col mb-7 md:mb-2">
                                 <p className="text-center mb-2">Organizer Messages</p>
                                 <hr className="self-center border-[#901010] border-1 w-1/6" />
@@ -140,7 +163,7 @@ export default async function IndividualCampaign(props) {
 
             </div>
 
-            <div className="flex flex-col mt-10 md:-mt-28">
+            <div className="flex flex-col mt-10">
                 <div className="w-[95%] self-center mb-16 md:mx-24">
                     <div className="flex flex-col mb-7 md:mb-2">
                         <p className="text-center mb-2">Comments</p>
