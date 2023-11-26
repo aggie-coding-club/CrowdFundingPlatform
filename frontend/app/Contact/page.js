@@ -26,17 +26,15 @@ class MyForm extends React.Component {
     render() {
         return (
             <main data-theme="light">
-                <div className="relative w-full h-[400px]">
-                    <Image
-                        src="/ReveilleX.jpg"
-                        alt="Reveille in a field of flowers"
-                        layout="fill"
-                        objectFit="cover"
-                    />
+                <div className="hero h-[50vh] bg-cover bg-center relative" style={{ backgroundImage: 'url("/ReveilleX.jpg")' }}>
+                <div className="absolute inset-0 bg-white bg-opacity-70"></div>
+                <div className="hero-content text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="max-w-screen-md">
+                    <h2 className="py-10 text-center text-5xl font-semibold text-gray-900">Contact Us</h2>
+  
+                    </div>
                 </div>
-                <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <h2 className="py-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Contact Us</h2>
-                </div>
+            </div>
                 <div className="flex items-center justify-center p-12">
                     <div className="mx-auto w-full max-w-[550px]">
                         <form onSubmit={this.handleSubmit}>
@@ -60,7 +58,7 @@ class MyForm extends React.Component {
                                 <textarea type="text" name="Feedback" placeholder="Type here" className="textarea textarea-bordered" required></textarea>
                             </div>
 
-                            <button type="submit" className="mt-6 btn btn-block">{this.state.submitted ? 'Submitted' : 'Submit'}</button>
+                            <button type="submit" className="bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-semibold py-2 px-8 rounded-xl mt-6 btn btn-block">{this.state.submitted ? 'Submitted' : 'Submit'}</button>
                         </form>
                     </div>
                 </div>

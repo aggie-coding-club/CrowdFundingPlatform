@@ -55,13 +55,13 @@ export default function Campaigns() {
     );
 
     return (
-        <div className='bg-white py-24'>
+        <div className='bg-white py-20'>
 
-            <h1 className='text-4xl text-center mb-2'>Campaigns</h1>
+            <h1 className='text-5xl font-semibold text-center mb-2'>Campaigns</h1>
             
             <div className="text-right mx-24 bg-white mb-6">
                 <Link href={"/CreateCampaign"}>
-                    <button className="bg-red-950 text-white text-lg px-4 py-2 rounded-md">
+                    <button className="bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-semibold py-2 px-8 rounded-xl">
                         + Create New Campaign
                     </button>
                 </Link>

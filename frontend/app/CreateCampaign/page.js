@@ -84,8 +84,8 @@ export default function CreateCampaign() {
 	};
 
 	return (
-		<div className='bg-white py-24'>
-			<h2 className="font-semibold text-4xl text-center">Create Campaign</h2>
+		<div className='bg-white py-20'>
+			<h2 className="text-5xl font-semibold text-center">Create Campaign</h2>
 			<div className="container max-w-screen-lg mx-auto mt-12">
 				<div>
 					<form className="" onSubmit={HandleSubmit}>
@@ -274,7 +274,7 @@ export default function CreateCampaign() {
 
 											</div>
 											<div className="flex justify-center mt-6">
-												<button type="submit" className="bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-bold py-2 px-8 rounded-xl"> Create </button>
+												<button type="submit" className="bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-semibold py-2 px-8 rounded-xl"> Create </button>
 											</div>
 										</div>
 								}

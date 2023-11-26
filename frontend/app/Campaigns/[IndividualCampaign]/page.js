@@ -31,7 +31,7 @@ export default async function IndividualCampaign(props) {
     }
 
     return (
-        <div className="bg-white font-serif text-black">
+        <div className="bg-white text-black">
             <div className="h-[100%] md:h-screen flex flex-col md:flex-row justify-between">
                 <div className="md:w-[45%] mx-[5%] -mt-6 md:-mt-0">
                     <div className="flex flex-col items-start">
@@ -66,12 +66,12 @@ export default async function IndividualCampaign(props) {
 
 
 
-                <div className="order-first md:order-1 flex flex-col justify-center md:w-[40%] md:-mt-[10%]">
+                <div className="order-first md:order-1 flex flex-col justify-center md:w-[40%] mt-24">
                     <div className="flex flex-col md:ml-[6%]">
                         {
                             useDatabase
                                 ? <p className="text-6xl font-bold pt-16 my-2">{data.name}</p>
-                                : <p className="text-center md:text-left text-6xl font-bold pt-16 my-3">Help Reveille</p>
+                                : <p className="text-center md:text-left text-5xl font-semibold pt-16 my-3">Help Reveille</p>
                         }
                         {
                             useDatabase
@@ -91,7 +91,7 @@ export default async function IndividualCampaign(props) {
                         </div>
 
                         <Link href={"/Donate?id=" + id} >
-                            <button className="mb-6 rounded-md self-center md:self-start text-white bg-[#901010] w-5/6 md:w-3/4 h-16">
+                            <button className="mb-6 bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-semibold py-2 px-8 rounded-xl w-5/6 md:w-3/4 h-16">
                                 Donate
                             </button>
                         </Link>
@@ -163,7 +163,7 @@ export default async function IndividualCampaign(props) {
 
             </div>
 
-            <div className="flex flex-col mt-10">
+            <div className="flex flex-col mt-24 pt-12">
                 <div className="w-[95%] self-center mb-16 md:mx-24">
                     <div className="flex flex-col mb-7 md:mb-2">
                         <p className="text-center mb-2">Comments</p>

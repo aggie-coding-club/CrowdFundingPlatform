@@ -125,12 +125,12 @@ export default function CheckoutForm(props) {
 
 	return (
 		<form id="payment-form" onSubmit={handleSubmit}>
-			<h1 className='text-center text-4xl'>Make a Donation</h1>
+			<h1 className='text-center text-5xl font-semibold'>Make a Donation</h1>
 			<div className="text-center">
-				<h1 className="pt-16 pb-6 text-2xl text-center">Select Donation Amount</h1>
-				<span className="text-xl">Custom $</span>
+				<h1 className="pt-16 pb-6 text-2xl text-center">Enter Donation Amount</h1>
+				<span className="text-xl">$</span>
 				<input
-					className="py-2 px-4 mx-2"
+					className="py-2 px-4 mx-2 border-2"
 					type="text"
 					value={donation}
 					onChange={handleInputChange}
@@ -138,13 +138,13 @@ export default function CheckoutForm(props) {
 			</div>
 			<h1 className="text-2xl text-center py-8">Enter Payment Details</h1>
 			<PaymentElement id="payment-element" options={paymentElementOptions} />
-			<button className="mt-6 bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-bold py-2 px-8 rounded-xl" disabled={isLoading || !stripe || !elements} id="submit">
+			<button className="mt-12 bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-bold py-2 px-8 rounded-xl" disabled={isLoading || !stripe || !elements} id="submit">
 				<span id="button-text">
 					{isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
 				</span>
 			</button>
 			{/* Show any error or success messages */}
-			{message && <div className="mt-4" id="payment-message">{message}</div>}
+			{message && <div className="mt-6 text-xl" id="payment-message">{message}</div>}
 		</form>
 	);
 }

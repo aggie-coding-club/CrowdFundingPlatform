@@ -28,7 +28,7 @@ export default async function Donate(props) {
     //console.log(data.data.client_secret);
 
     return (
-        <div className="py-24 bg-white px-6">
+        <div className="py-20 bg-white px-6">
             <Link href={"/Campaigns/" + id}>
                 <button className='bg-red-950 hover:bg-gray-100 hover:text-black text-white text-lg font-bold py-2 px-8 rounded-xl'>Back to Fundraiser</button>
             </Link>

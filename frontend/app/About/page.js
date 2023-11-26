@@ -1,13 +1,13 @@
 export default function About() {
 	return (
-		<div className="flex flex-col h-[100%] bg-white font-serif">
+		<div className="flex flex-col h-[100%] bg-white">
 			<div className="flex flex-col items-center w-full my-20 text-[#500000]">
-				<h1 className="text-4xl text-center text-black mb-12">About Us</h1>
-				<p className="text-5xl text-center italic w-[60%] my-5">
+				<h1 className="text-5xl font-semibold text-center text-black mb-12">About Us</h1>
+				<p className="text-5xl text-center italic w-[60%] my-5 font-serif">
 					" A&M encourages volunteerism, encourages being one of a thousand
 					points of light, helping others...and it comes naturally to Aggies. "
 				</p>
-				<p className="mt-4 text-3xl italic font-medium mx-6 lg:mx-0">
+				<p className="mt-4 text-3xl italic font-medium mx-6 lg:mx-0 font-serif">
 					- Former US President, George Bush
 				</p>
 			</div>
