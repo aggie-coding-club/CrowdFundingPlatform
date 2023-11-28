@@ -1,6 +1,6 @@
 # AggieFunds
 
-To run the project, open two terminals.
+To run the project, open two terminals in VS Code.
 
 Terminal 1:
 - cd frontend
